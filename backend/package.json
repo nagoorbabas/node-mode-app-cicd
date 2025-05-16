@@ -4,15 +4,17 @@
   "description": "Node.js app with MongoDB and Docker for CI/CD",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+  "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.11.18"
+    "mongoose": "^8.14.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
   "engines": {
-    "node": "14.x.x"
+    "node": ">=14"
   },
   "author": "Your Name",
   "license": "MIT"
