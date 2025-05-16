@@ -1,0 +1,19 @@
+{
+  "name": "node-mode-app-cicd",
+  "version": "1.0.0",
+  "description": "Node.js app with MongoDB and Docker for CI/CD",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "14.x.x"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/todoapp
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
