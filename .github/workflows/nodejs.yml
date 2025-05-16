@@ -20,7 +20,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}  # Secret for username 'nagoor'
+          username: ${{ secrets.nagoorbabas }}  # Secret for username 'nagoor'
           password: ${{ secrets.DOCKER_PASSWORD }}  # Secret for password '123'
 
       - name: Build and push Docker image
@@ -28,7 +28,7 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/node-mode-app:latest
+          tags: ${{ secrets.nagoorbabas }}/node-mode-app:latest
 
       - name: Done!
         run: echo "✅ Docker image pushed to Docker Hub"
