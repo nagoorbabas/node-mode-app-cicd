@@ -1,20 +1,21 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const todoRoutes = require('./routes/todoRoutes');
-
 const app = express();
-const port = process.env.PORT || 3001;
+const todoRoutes = require('./routes/todoRoutes');
 
 app.use(express.json());
 app.use('/todos', todoRoutes);
 
-mongoose.connect('mongodb://mongo:27017/todoapp', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.log(err));
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+// Health check route (optional but good for testing)
+app.get('/health', (req, res) => {
+  res.send('OK');
 });
+
+// Only listen if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app; // 👈 Export the app for testing
